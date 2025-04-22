@@ -9,50 +9,25 @@ namespace PackingInventory
 {
     public class Pack
     {
-        public Pack() 
+        public InventoryItem[] Items { get; }
+        public double MaxWeight { get; }
+        public double MaxVolume { get; }
+        public Pack(int itemCount, double maxWeight, double maxVolume) 
         {
-            int[] pack = new int[3];
-
-            GetItemAmount(pack);
-            GetItemWeight(pack);
-            GetItemVolume(pack);
-
+            Items = new InventoryItem[itemCount];
+            this.MaxWeight = maxWeight;
+            this.MaxVolume = maxVolume;
         }
 
-        private void GetItemAmount(int[] pack)
-        {
-            while (true)
-            {
-                Console.WriteLine("How many items will the pack be able to store? ");
-                string trypack = Console.ReadLine();
-                int.TryParse(trypack, out pack[0]);
-                continue;
-
-            }
+        public bool add(InventoryItem item) {
+            //if too heavy
+            return false;
+            //if too large
+            return false;
+            //if too many items
+            return false;
+            //else add item
+            return true;
         }
-
-        private void GetItemWeight(int[] pack)
-        {
-            while (true)
-            {
-                Console.WriteLine("How much weight will the bag be able to carry? ");
-                string trypack = Console.ReadLine();
-                int.TryParse(trypack, out pack[1]);
-                continue;
-
-            }
-        }
-        private void GetItemVolume(int[] pack)
-        {
-            while (true)
-            {
-                Console.WriteLine("How much volume will the bag be able to carry? ");
-                string trypack = Console.ReadLine();
-                int.TryParse(trypack, out pack[2]);
-                continue;
-
-            }
-        }
-
     }
 }
