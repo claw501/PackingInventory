@@ -15,6 +15,5 @@ namespace PackingInventory
             Weight = weight;
             Volume = volume;
         }
-
     }
 }
